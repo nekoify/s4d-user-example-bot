@@ -1,0 +1,16 @@
+{
+  "name": "s4d-user-example-bot",
+  "version": "1.0.0",
+  "description": "s4d user example bot ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "cat soup",
+  "license": "ISC",
+  "dependencies": {
+    "cross-fetch": "^3.1.5",
+    "discord.js": "^13.8.1"
+  }
+}
