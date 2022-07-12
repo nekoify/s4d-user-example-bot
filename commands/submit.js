@@ -60,6 +60,7 @@ module.exports = {
                                 console.log(obj)
                                 fetch('https://469exampletest.jeremygamer13.repl.co/api/upload', {
                                     method: 'POST',
+                                    mode: 'cors',
                                     headers: {
                                         'Content-Type': 'application/json',
                                     },
