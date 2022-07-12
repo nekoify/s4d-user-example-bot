@@ -23,7 +23,7 @@ function occurrences(string, subString, allowOverlapping) {
 
 
 module.exports = {
-    name: 'test',
+    name: 'submit',
     execute(message, args, client) {
         var author = message.author.id
 
@@ -64,6 +64,7 @@ module.exports = {
                                     headers: {
                                         'Content-Type': 'application/json',
                                     },
+                                    referrerPolicy: 'origin',
                                     body: JSON.stringify(obj),
                                 }).then(res => res.json()).then(json => {
                                     console.log(json)
