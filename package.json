@@ -9,7 +9,7 @@
   },
   "engines": {
     "node": "16.x"
-  }
+  },
   "author": "cat soup",
   "license": "ISC",
   "dependencies": {
