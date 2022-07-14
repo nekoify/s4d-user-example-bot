@@ -5,7 +5,7 @@ const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 module.exports = {
     name: 'search',
     execute(message, args, client) {
-        var text = message.content.replace("^search ", "").toLowerCase()
+        var text = message.content.replace("()search ", "").toLowerCase()
         var id = makeid(10)
         var results = []
         fetch("https://469exampletest.jeremygamer13.repl.co/api/examples").then(res => res.json()).then(data => {
@@ -41,6 +41,7 @@ module.exports = {
                     embed.setTitle(`${results[Number(message.content) - 1][0]}`)
                     embed.addField('Description', `${results[Number(message.content) - 1][1]}`)
                     embed.addField('Block Count', `${String(results[Number(message.content) - 1][3])}`)
+                  embed.addField('ID', `${String(results[Number(message.content) - 1][4])}`)
                     embed.addField('Creator', `${String(results[Number(message.content) - 1][6])}`)
                     embed.addField('Note:', `The following file can be uploaded and opened in Scratch For Discord to see the example`)
                     fetch("https://469exampletest.jeremygamer13.repl.co/api/getExample?xml=true&id=" + results[Number(message.content) - 1][4]).then(res => res.text()).then(data => {
