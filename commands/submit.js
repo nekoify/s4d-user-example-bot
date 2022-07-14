@@ -1,6 +1,6 @@
 const fetch = require('cross-fetch')
 const Discord = require("discord.js")
-
+const {XMLValidator} = require("fast-xml-parser");
 function occurrences(string, subString, allowOverlapping) {
 
     string += "";
@@ -36,6 +36,10 @@ module.exports = {
                     var blockCount = 0
                     var blockCount = occurrences(body, "<block")
                     blockCount = blockCount + occurrences(body, "<shadow")
+const result = XMLValidator.validate(body, {
+    allowBooleanAttributes: true
+});
+                  if (result != true) return message.channel.send("error parsing your XML data please make sure you uploaded the blocks.xml file found in the zip file when downloading your bot")
                     if (blockCount < 5) {
                         message.reply("There must be atleast 5 blocks in your example")
                     } else {
@@ -55,20 +59,22 @@ module.exports = {
                                     author: `${message.author.username}#${message.author.discriminator}`,
                                     sessionID: author,
                                     xml: body.replace(/\n/g, ""),
-                                    count: blockCount
+                                    count: blockCount,
+                                    corsBypass: process.env['apiKey']
                                 }
-                                console.log(obj)
+                              /*
                                 fetch('https://469exampletest.jeremygamer13.repl.co/api/upload', {
                                     method: 'POST',
-                                    mode: 'cors',
+                                    mode: "cors",
                                     headers: {
                                         'Content-Type': 'application/json',
                                     },
-                                    referrerPolicy: 'origin',
+                                  
                                     body: JSON.stringify(obj),
                                 }).then(res => res.json()).then(json => {
                                     console.log(json)
                                 })
+                              */
                                 collector.stop()
 
                             }
