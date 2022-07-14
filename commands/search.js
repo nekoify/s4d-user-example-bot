@@ -34,6 +34,13 @@ module.exports = {
                 if (results.length != 0) {
                     const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
                 collector.on('collect', message => {
+                  if (isNumeric(message.content) == true) {
+                  if (Number(message.content) > results.length) {
+                    message.reply("Selected number is higher then the amount of examples found!") 
+                      collector.stop()
+                    return
+                  } else {
+                    if (Number(message.content) > results.length) {
                     console.log(results[Number(message.content) - 1])
                     let embed = new Discord.MessageEmbed()
                     embed.setColor("RANDOM");
@@ -65,6 +72,12 @@ module.exports = {
                     })
 
                     collector.stop()
+                    }
+                  }
+                  } else {
+                    message.reply("please enter a valid number next time")
+                    collector.stop()
+                  }
                 })
                 }
               
@@ -83,4 +96,10 @@ function makeid(length) {
             charactersLength));
     }
     return result;
+}
+
+function isNumeric(str) {
+  if (typeof str != "string") return false 
+  return !isNaN(str) &&
+         !isNaN(parseFloat(str))
 }
