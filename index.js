@@ -11,8 +11,8 @@ client.on('ready', () => {
 
 client.on('messageCreate', message => {
     var server = String(message.guild.id)
-    if (!message.content.startsWith("^") || message.author.bot) return
-    const args = message.content.slice("^".length).trim().split(/ +/);
+    if (!message.content.startsWith("()") || message.author.bot) return
+    const args = message.content.slice("()".length).trim().split(/ +/);
     const command = args.shift().toLowerCase();
     if (!client.commands.has(command)) return
     try {
