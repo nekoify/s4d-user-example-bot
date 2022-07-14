@@ -19,7 +19,9 @@ module.exports = {
             embed.setColor("RANDOM");
             embed.setTimestamp()
             embed.setTitle(`${results.length} Examples found`)
-            embed.addField('\u200B', `Please choose the number you would like to select`)
+          if (results.length != 0) { 
+               embed.addField('\u200B', `Please choose the number you would like to select`)
+          }
             results.forEach(ele => {
                 counter++
                 embed.addField('\u200B', `${counter}. ${ele[0]}`)
@@ -29,7 +31,8 @@ module.exports = {
                 embeds: [embed]
             }).then(async() => {
                 await delay(500)
-                const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
+                if (results.length != 0) {
+                    const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
                 collector.on('collect', message => {
                     console.log(results[Number(message.content) - 1])
                     let embed = new Discord.MessageEmbed()
@@ -62,6 +65,8 @@ module.exports = {
 
                     collector.stop()
                 })
+                }
+              
             })
 
         })
