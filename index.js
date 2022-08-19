@@ -1,6 +1,6 @@
 const keepAlive = require("./server.js")
 const intents = require("./intents.js")
- const { Client, GatewayIntentBits, Partials, Collection, MessageEmbed, InteractionType} = require('discord.js');
+ const { Client, GatewayIntentBits, Partials, Collection, MessageEmbed, InteractionType, EmbedBuilder} = require('discord.js');
  const client = new Client(intents);
 const fs = require('fs');
 
@@ -38,7 +38,7 @@ client.on('interactionCreate', async interaction => {
       await command.execute(interaction, client);
     } catch (error) {
       console.error(error);
-      const embed = new MessageEmbed();
+      const embed = new EmbedBuilder();
         embed.setDescription(`There was a error. Please try again later`)
       .setColor("#2F3136")
       return interaction.reply({
