@@ -31,7 +31,7 @@ module.exports = {
 					]),
 			);
     let embed = new Discord.EmbedBuilder()
-    embed.setColor('RANDOM');
+    embed.setColor('ffd1dc');
     embed.setTitle("Commands List")
     embed.setTimestamp()
     embed.setDescription('Please select a option')
