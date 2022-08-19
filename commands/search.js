@@ -27,7 +27,7 @@ module.exports = {
             })
             var counter = 0
             let embed = new Discord.EmbedBuilder()
-            embed.setColor("RANDOM");
+            embed.setColor("ffd1dc");
             embed.setTimestamp()
             embed.setTitle(`${results.length} Example/s found`)
           if (results.length != 0) { 
@@ -63,7 +63,7 @@ module.exports = {
                       console.log("ran")
                     
                     let embed = new Discord.EmbedBuilder()
-                    embed.setColor("RANDOM");
+                    embed.setColor("ffd1dc");
                     embed.setTimestamp()
                     embed.setTitle(`${results[Number(message.content) - 1][0]}`)
                     embed.addField('Description', `${results[Number(message.content) - 1][1]}`)
