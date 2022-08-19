@@ -12,9 +12,9 @@ module.exports = {
     .setDescription('Help menu'),
 
   async execute(interaction, client) {
-      const row = new Discord.MessageActionRow()
+      const row = new Discord.ActionRowBuilder()
 			.addComponents(
-				new Discord.MessageSelectMenu()
+				new Discord.SelectMenuBuilder()
 					.setCustomId('select')
 					.setPlaceholder('Select a command')
 					.addOptions([
@@ -30,7 +30,7 @@ module.exports = {
 						},
 					]),
 			);
-    let embed = new Discord.MessageEmbed()
+    let embed = new Discord.EmbedBuilder()
     embed.setColor('RANDOM');
     embed.setTitle("Commands List")
     embed.setTimestamp()
