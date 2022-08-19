@@ -31,11 +31,11 @@ module.exports = {
             embed.setTimestamp()
             embed.setTitle(`${results.length} Example/s found`)
           if (results.length != 0) { 
-               embed.addField('\u200B', `Please choose the number you would like to select`)
+              embed.addFields({ name: '\u200B', value: 'Please choose the number you would like to select', inline: false })
           }
             results.forEach(ele => {
                 counter++
-                embed.addField('\u200B', `${counter}. ${ele[0]}`)
+                embed.addFields({ name: '\u200B', value: `${counter}. ${ele[0]}`, inline: false })
             });
 
             interaction.editReply({
@@ -66,11 +66,11 @@ module.exports = {
                     embed.setColor("ffd1dc");
                     embed.setTimestamp()
                     embed.setTitle(`${results[Number(message.content) - 1][0]}`)
-                    embed.addField('Description', `${results[Number(message.content) - 1][1]}`)
-                    embed.addField('Block Count', `${String(results[Number(message.content) - 1][3])}`)
-                  embed.addField('ID', `${String(results[Number(message.content) - 1][4])}`)
-                    embed.addField('Creator', `${String(results[Number(message.content) - 1][6])}`)
-                    embed.addField('Note:', `The following file can be uploaded and opened in Scratch For Discord to see the example`)
+                    embed.addFields({ name: 'Description', value: `${results[Number(message.content) - 1][1]}`, inline: false })
+                    embed.addFields({ name: 'Block Count', value: `${String(results[Number(message.content) - 1][3])}`, inline: false })
+                    embed.addFields({ name: 'ID', value: `${String(results[Number(message.content) - 1][4])}`, inline: false })
+                    embed.addFields({ name: 'Creator', value: `${String(results[Number(message.content) - 1][6])}`, inline: false })
+                    embed.addFields({ name: 'Note:', value: `The following file can be uploaded and opened in Scratch For Discord to see the example`, inline: false })
                     fetch("https://469exampletest.jeremygamer13.repl.co/api/getExample?xml=true&id=" + results[Number(message.content) - 1][4]).then(res => res.text()).then(data => {
                         fs.writeFile(id + '-example.xml', data, (err) => {
                             if (err) throw err;
