@@ -50,14 +50,14 @@ client.on('interactionCreate', async interaction => {
 client.on('interactionCreate', interaction => {
   if (interaction.type === InteractionType.ApplicationCommand) return;
 	if (interaction.values[0] == "search") {
-    let embed = new MessageEmbed()
+    let embed = new EmbedBuilder()
     embed.setColor('#ffd1dc');
     embed.setTitle("Search")
     embed.setTimestamp()
     embed.setDescription(`Provides a numbered list of examples that match the query, typing in the number of the example eg. "3" will provide you with infomation and the XML file for the example. The XML file can be opened in Scratch for Discord to view the example. \n \n Cooldown: None`)
   interaction.update({ embeds: [embed] })
   } else if (interaction.values[0] == "upload") {
-    let embed = new MessageEmbed()
+    let embed = new EmbedBuilder()
     embed.setColor('#ffd1dc');
     embed.setTitle("Upload")
     embed.setTimestamp()
