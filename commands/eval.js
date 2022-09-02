@@ -18,7 +18,7 @@ module.exports = {
  var code = interaction.options.getString('code');
       if (interaction.user.id == '416508744097071107') {
         try {
-        eval(cmd)
+        eval("(async () => {" + code + "})()")
           }
         catch (err) {
          await interaction.reply(String(err))
