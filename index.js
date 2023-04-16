@@ -1,4 +1,4 @@
-const keepAlive = require("./server.js");
+
 const intents = require("./intents.js");
 const {
   Client,
@@ -13,7 +13,8 @@ const client = new Client(intents);
 const fs = require("fs");
 require("dotenv").config();
 
-client.login(process.env["token"]).catch(console.error);
+client.login(process.env["TOKEN"]).catch(console.error);
+
 client.commands = new Collection();
 client.aliases = new Collection();
 client.interactions = new Collection();
@@ -84,4 +85,3 @@ client.on("interactionCreate", (interaction) => {
   }
 });
 
-keepAlive();
